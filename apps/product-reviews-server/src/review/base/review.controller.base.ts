@@ -45,6 +45,9 @@ export class ReviewControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: ReviewCreateInput,
+  })
   async createReview(@common.Body() data: ReviewCreateInput): Promise<Review> {
     return await this.service.createReview({
       data: {
@@ -178,6 +181,9 @@ export class ReviewControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: ReviewUpdateInput,
   })
   async updateReview(
     @common.Param() params: ReviewWhereUniqueInput,
